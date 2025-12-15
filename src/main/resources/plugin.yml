@@ -1,0 +1,30 @@
+name: GhostBlocks
+version: '1.0-SNAPSHOT'
+main: net.vanolex.ghostBlocks.GhostBlocks
+api-version: '1.8'
+authors: [ Vanolex ]
+depend:
+  - GhostBlocksVisualiser
+commands:
+  ghostwand:
+    aliases:
+      - 'gwand'
+      - 'gw'
+    description: 'Gives you the selected wand to work with ghost blocks'
+    usage: '/ghostwand [replace material]'
+  ghostmodify:
+    aliases:
+      - 'gmod'
+    description: 'Perform operations on the selected block'
+    usage: '/ghostmodify <help|deselect|deltateleporttiles|changeblock|destroy> [args]'
+#  ghostclipboard:
+#    aliases:
+#      - 'gclip'
+#      - 'gcb'
+#    description: 'Perform clipboard operations'
+#    usage: '/ghostclipboard <help|copy|rotate|flip|paste|undo> [args]'
+  ghostitem:
+    aliases:
+      - 'gi'
+    description: 'Gives you an item that can place ghost blocks of the same type as the item being held on command execution.'
+    usage: '/ghostitem [replace material]'
