@@ -16,6 +16,7 @@ import org.bukkit.util.Vector;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class GhostModifyCmd  implements CommandExecutor {
 
@@ -138,6 +139,13 @@ public class GhostModifyCmd  implements CommandExecutor {
             }
             for (ArmorStand s : lst) {
                 s.remove();
+            }
+            for (Map.Entry<Player, HashSet<ArmorStand>> i : SelectionManager.selectionMap.entrySet()) {
+                Player p2 = i.getKey();
+                if (p == p2) continue;
+                if (!i.getValue().removeAll(lst)) continue; // if not found overlapping stands continue
+                p2.sendMessage("§e"+ p.getName() +" destroyed some of the blocks you had selected.");
+                p2.playSound(p.getLocation(), Sound.NOTE_SNARE_DRUM, 2f, 1f);
             }
             lst.clear();
             p.sendMessage("§aYour selection was destroyed.");
